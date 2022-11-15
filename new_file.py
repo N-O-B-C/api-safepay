@@ -28,17 +28,21 @@ def get_transaction():
     worksheet.write(0,0, "#")
     worksheet.write(0, 1, "initiating_date")
     worksheet.write(0, 2, "paymentref")
-    worksheet.write(0,3, "merchant_id")
-    worksheet.write(0,4, "business_name")
-    worksheet.write(0,5, "product_amount")
+   
+    worksheet.write(0,3, "business_name")
+    worksheet.write(0,4, "product_amount")
 
+    count = 0
     for index, entry in enumerate(records):
+        count += 1
         worksheet.write(index+1, 0, str(index))
         worksheet.write(index+1, 1, entry["initiating_date"])
         worksheet.write(index+1, 2, entry["paymentref"])
-        worksheet.write(index+1, 3, entry["merchant_id"])
-        worksheet.write(index+1, 4, entry["business_name"])
-        worksheet.write(index+1, 5, entry["product_amount"])
+        
+        worksheet.write(index+1, 3, entry["business_name"])
+        worksheet.write(index+1, 4, entry["product_amount"])
+
+    print(count)
 
     workbook.close()
 
